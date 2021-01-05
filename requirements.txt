@@ -1,0 +1,6 @@
+Flask
+flask_sqlalchemy
+flask_moment
+datetime
+gunicorn
+psycopg2

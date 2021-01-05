@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>todolist</title>
+{% endblock %}
+
+{% block body %} 
+<br>
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="col-md-12">
+                <div class="card px-3">
+                    <div class="card-body">
+                        
+                        <h4 class="card-title">待辦事項</h4>
+                        <div class="add-items d-flex"> 
+                            <form action="/task" method="post" class="form-inline mt-3 mb-3">
+                                
+                                <input type="text" name="content" value="" class="form-control todo-list-input" placeholder="你今天要做什麼?" required>
+                                 <button class="add btn btn-primary font-weight-bold todo-list-add-btn"><i class="fas fa-arrow-alt-circle-right"></i></button>
+                                </form>
+                                 </div>
+                        
+                        <div class="list-wrapper">
+                            <br>
+                            <ul class="list-group" id="todo-list">
+                                
+                                {% for task in tasks %}
+                                    <li>
+                                        <div class="form-group row">
+                                            <p class="card-panel hoverable" id="item1" style="display: block;">
+                        
+                                                <div class="col">
+                                                <span>
+                                                    <form action="/edit/{{ task.id }}" method="post"> 
+                                                    {% if task.done %} <strike> {% endif %}<input type="text" id='{{task.id}}' name="content" value="{{ task.content }}" class="form-control todo-list-input" required>{% if task.done %} </strike>{% endif %}
+                                                    </form>
+                                                </span>
+                                                </div>
+                                                <div class="col">
+                                                <a class="btn btn-primary" href="/done/{{ task.id }}" title="done?"><i class="fas fa-check"></i></a>
+                                                <a class="btn btn-warning" href="/delete/{{ task.id }}" title="delete it?"><i class="fas fa-trash-alt"></i></a>                                            </p>
+                                                </div>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    {% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Home</title>
+{% endblock %}
+
+{% block body %} 
+<br>
+<h1>主頁的部分</h1>
+<br>
+<main role="main">
+    <div class="jumbotron">
+      <div class="col-sm-8 mx-auto">
+        <h1>歡迎</h1>
+        <p>歡迎來跟我一起在燒瓶裡泡泡麵~除了泡泡麵之外，這是我用flask寫出來的第一個部落格，希望可以把他部署上線XD</p>
+        <p>可以從我的部落格來看我的開發日記~<a href="https://heromings.blogspot.com/">阿名車庫</a></p>
+        <p>The local date and time is {{ moment(current_time).format('LLL') }}.</p>
+        <p>
+          <a class="btn btn-primary" href="/posts" role="button">跳至所有貼文 &raquo;</a>
+        </p>
+      </div>
+    </div>
+  </main>
+{% endblock %}

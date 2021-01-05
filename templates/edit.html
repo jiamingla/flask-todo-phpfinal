@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Edit Todos</title>
+{% endblock %}
+
+
+{% block body %} 
+<h1>編輯待辦事項</h1>
+
+    <hr>
+    <h2>編輯:</h2>
+    <!--這個form action滿重要的，但我還看不懂---->
+    <form action='/edit/{{task.id}}' method='POST'>
+        <label for="content">內容:</label>
+        <textarea class="form-control" name="content" id="content" aria-label="輸入內容" rows="3">{{ task.content }}</textarea>
+        <br>
+        <br>
+        <input type="submit" value="保存保起來">
+    </form>
+    <hr>
+{% endblock %}
